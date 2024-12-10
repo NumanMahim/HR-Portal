@@ -1,16 +1,20 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "../styles/EmployeeDashboard.css";
 
 const EmployeeDashboard = () => {
   const navigate = useNavigate();
 
   const handleViewProfileClick = () => {
-    navigate("/profile"); 
+    navigate("/profile");
   };
 
   const handleApplyLeaveClick = () => {
-    navigate("/apply-leave"); 
+    navigate("/apply-leave");
+  };
+
+  const handleMyScheduleClick = () => {
+    navigate("/my-schedule");
   };
 
   return (
@@ -35,28 +39,19 @@ const EmployeeDashboard = () => {
           <p>Submit leave requests and track their status.</p>
         </div>
 
-        <div className="dashboard-card card-schedule">
+        <div
+          className="dashboard-card card-schedule"
+          onClick={handleMyScheduleClick}
+        >
           <div className="card-icon">📅</div>
           <h3>My Schedule</h3>
           <p>View your assigned work schedules.</p>
-        </div>
-
-        <div className="dashboard-card card-attendance">
-          <div className="card-icon">✅</div>
-          <h3>Attendance</h3>
-          <p>Regularize and monitor attendance records.</p>
         </div>
 
         <div className="dashboard-card card-feedback">
           <div className="card-icon">💬</div>
           <h3>Feedback</h3>
           <p>Provide feedback or raise concerns with HR.</p>
-        </div>
-
-        <div className="dashboard-card card-performance">
-          <div className="card-icon">📊</div>
-          <h3>Performance</h3>
-          <p>View your performance metrics and goals.</p>
         </div>
       </div>
     </div>
