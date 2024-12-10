@@ -5,6 +5,8 @@ import HRDashboard from "./pages/HRDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import Profile from "./pages/Profile";
 import ApplyLeave from "./pages/ApplyLeave";
+import EmployeeList from "./pages/EmployeeList"; // Import EmployeeList
+import SignUp from "./pages/SignUp"; // Import SignUp
 
 function App() {
   const [user, setUser] = useState(null); // Stores logged-in user details
@@ -14,6 +16,9 @@ function App() {
       <Routes>
         {/* Login Route */}
         <Route path="/" element={<Login setUser={setUser} />} />
+
+        {/* Sign Up Route */}
+        <Route path="/signup" element={<SignUp />} />
 
         {/* Redirect to Dashboards Based on Role */}
         <Route
@@ -52,6 +57,14 @@ function App() {
           path="/apply-leave"
           element={
             user?.role === "Employee" ? <ApplyLeave user={user} /> : <Navigate to="/" />
+          }
+        />
+
+        {/* Employee List Route */}
+        <Route
+          path="/employee-list"
+          element={
+            user?.role === "HR" ? <EmployeeList user={user} /> : <Navigate to="/" />
           }
         />
       </Routes>
